@@ -5,7 +5,7 @@ def get_all():
 
     membros = []
 
-    sql =   "Select  * from webschema.membros"
+    sql =   "Select  * from webschema.membro"
     results = conn_base(sql)
 
     for r in results:
@@ -19,14 +19,14 @@ def get_all():
 
 def get_one(id):
     
-    sql =   " Select * from webschema.membros Where id = %s"
+    sql =   " Select * from webschema.membro Where id = %s"
     values = [id]
     
     result = conn_base(sql,values)[0]
 
     if result is not None:
         membro = Membros(result['nome']
-                        ,result['sobresultenome']
+                        ,result['sobrenome']
                         ,result['data_nascimento']
                         ,result['id'])
 
@@ -34,7 +34,7 @@ def get_one(id):
 
 def create(membro):
 
-    sql =   " Insert into webschema.membros (nome,sobrenome,data_nascimento) VALUES (%s,%s,%s) Returning *;"
+    sql =   " Insert into webschema.membro (nome,sobrenome,data_nascimento) VALUES (%s,%s,%s) Returning *;"
     values = [membro.nome,membro.sobrenome,membro.data_nascimento]
 
     results = conn_base(sql,values)
@@ -53,6 +53,6 @@ def delete_one(id):
 def edit(membro):
 
     sql = " Update webschema.membro set (nome,sobrenome,data_nascimento) = (%s,%s,%s) Where id = %s;"
-    values = [membro.nome,membro.sobrenome,membro.data_nascimento,id.id]
+    values = [membro.nome,membro.sobrenome,membro.data_nascimento,membro.id]
 
     conn_base(sql,values)
