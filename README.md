@@ -1,6 +1,8 @@
-# FMachineLearning
+# Formação Engenheiro de ML
 
-Subir postgres com configurações próprias.
->  docker run --name nome -e POSTGRES_PASSWORD=senha -d -p porta postgres
+Info:
+Subir docker postgre com configurações próprias.
 
-normalmente a porta sendo 5432, pois é a padrão do Postgres.
+> docker run --name NOME -e POSTGRES_PASSWORD=SENHA -d -p PORTA postgres
+
+normalmente a porta sendo 5432, pois é a padrão do Postgre.
