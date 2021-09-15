@@ -1,6 +1,7 @@
-from Classes.atividades import Atividades
+from Classes.atividade import Atividade
 from Database.connect import conn_base
 
+# Faz o select no banco por todos os itens
 def get_all():
 
     atividades = []
@@ -9,7 +10,7 @@ def get_all():
     results = conn_base(sql)
 
     for r in results:
-        atividade = Atividades(r['nome_atividade']
+        atividade = Atividade(r['nome_atividade']
                                 ,r['tipo']
                                 ,r['duracao']
                                 ,r['id'])
@@ -17,6 +18,7 @@ def get_all():
 
     return atividades
 
+# Faz select no banco, procurando por um ID
 def get_one(id):
     
     sql =   " Select * from webschema.atividade Where id = %s"
@@ -25,13 +27,14 @@ def get_one(id):
     result = conn_base(sql,values)[0]
 
     if result is not None:
-        atividade = Atividades(result['nome_atividade']
+        atividade = Atividade(result['nome_atividade']
                                 ,result['sobrenome']
                                 ,result['duracao']
                                 ,result['id'])
 
     return atividade
 
+# Função para criação de item novo
 def create(atividade):
 
     sql =   " Insert into webschema.atividade (nome_atividade,tipo,duracao) VALUES (%s,%s,%s) Returning *;"
@@ -45,6 +48,7 @@ def create(atividade):
 
     return atividade
 
+# Função para deletar item 
 def delete_one(id):
     
     sql =   " Delete from webschema.atividade where id = %s "
@@ -52,6 +56,7 @@ def delete_one(id):
 
     conn_base(sql,values)
 
+# Função para editar item 
 def edit(atividade):
 
     sql = " Update webschema.atividade set (nome_atividade,tipo,duracao) = (%s,%s,%s) Where id = %s;"

@@ -1,4 +1,4 @@
-class Atividades:
+class Atividade:
 
     def __init__(self,nome_atividade,tipo,duracao,id=None):
         self.nome_atividade = nome_atividade

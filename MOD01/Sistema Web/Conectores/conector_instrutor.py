@@ -1,6 +1,7 @@
-from Classes.instrutores import Instrutores
+from Classes.instrutor import Instrutor
 from Database.connect import conn_base
 
+# Faz o select no banco por todos os itens
 def get_all():
 
     instrutores = []
@@ -9,7 +10,7 @@ def get_all():
     results = conn_base(sql)
 
     for r in results:
-        instrutor = Instrutores(r['nome']
+        instrutor = Instrutor(r['nome']
                                 ,r['sobrenome']
                                 ,r['data_nascimento']
                                 ,r['id'])
@@ -17,6 +18,7 @@ def get_all():
 
     return instrutores
 
+# Faz select no banco, procurando por um ID
 def get_one(id):
     
     sql =   " Select * from webschema.instrutor Where id = %s"
@@ -25,13 +27,14 @@ def get_one(id):
     result = conn_base(sql,values)[0]
 
     if result is not None:
-        instrutor = Instrutores(result['nome']
+        instrutor = Instrutor(result['nome']
                                 ,result['sobrenome']
                                 ,result['data_nascimento']
                                 ,result['id'])
 
     return instrutor
 
+# Função para criação de item novo
 def create(instrutor):
 
     sql =   " Insert into webschema.instrutor (nome,sobrenome,data_nascimento) VALUES (%s,%s,%s) Returning *;"
@@ -43,6 +46,7 @@ def create(instrutor):
 
     return instrutor
 
+# Função para deletar item 
 def delete_one(id):
     
     sql =   " Delete from webschema.instrutor where id = %s "
@@ -50,6 +54,7 @@ def delete_one(id):
 
     conn_base(sql,values)
 
+# Função para editar item 
 def edit(instrutor):
 
     sql = " Update webschema.instrutor set (nome,sobrenome,data_nascimento) = (%s,%s,%s) Where id = %s;"

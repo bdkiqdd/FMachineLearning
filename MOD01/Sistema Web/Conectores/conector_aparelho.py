@@ -1,6 +1,7 @@
-from Classes.aparelhos import Aparelhos
+from Classes.aparelho import Aparelho
 from Database.connect import conn_base
 
+# Faz o select no banco por todos os itens
 def get_all():
 
     aparelhos = []
@@ -9,12 +10,13 @@ def get_all():
     results = conn_base(sql)
 
     for r in results:
-        aparelho = Aparelhos(r['nome_aparelho']
+        aparelho = Aparelho(r['nome_aparelho']
                             ,r['id'])
         aparelhos.append(aparelho)
 
     return aparelhos
 
+# Faz select no banco, procurando por um ID
 def get_one(id):
     
     sql =   " Select * from webschema.aparelho Where id = %s"
@@ -23,11 +25,12 @@ def get_one(id):
     result = conn_base(sql,values)[0]
 
     if result is not None:
-        aparelho = Aparelhos(result['nome_aparelho']
+        aparelho = Aparelho(result['nome_aparelho']
                             ,result['id'])
 
     return aparelho
 
+# Função para criação de item novo
 def create(aparelho):
 
     sql =   " Insert into webschema.aparelho (nome_aparelho) VALUES (%s) Returning *;"
@@ -39,6 +42,7 @@ def create(aparelho):
 
     return aparelho
 
+# Função para deletar item 
 def delete_one(id):
     
     sql =   " Delete from webschema.aparelho where id = %s "
@@ -46,6 +50,7 @@ def delete_one(id):
 
     conn_base(sql,values)
 
+# Função para editar item 
 def edit(aparelho):
 
     sql = " Update webschema.aparelho set (nome_aparelho) = (%s) Where id = %s;"
