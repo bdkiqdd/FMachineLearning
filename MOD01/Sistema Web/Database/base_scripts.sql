@@ -12,12 +12,13 @@ id SMALLSERIAL NOT NULL Primary Key ,
 nome_aparelho Varchar(20)
 )
 
--- nome,sobrenome,data_nascimento,id=None
+-- nome,sobrenome,data_nascimento,ativo,id=None
 CREATE TABLE IF NOT EXISTS webschema.membro (
 id serial NOT NULL Primary KEY ,
 nome Varchar(15) NOT NULL,
 sobrenome VArchar(25) NOT NULL,
-data_nascimento date NOT NULL
+data_nascimento date NOT NULL,
+ativo boolean NOTNULL
 )
  
 -- nome,sobrenome,data_nascimento,id=None

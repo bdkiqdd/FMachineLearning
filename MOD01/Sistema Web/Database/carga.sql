@@ -12,9 +12,9 @@ INSERT INTO webschema.aparelho (nome_aparelho) VALUES ('Caixa de Som');
 
 -- Membro
 
-INSERT INTO webschema.membro (nome,sobrenome,data_nascimento) VALUES ('Claudio','Peres', '1994-08-25');
-INSERT INTO webschema.membro (nome,sobrenome,data_nascimento) VALUES ('Henrique','Ferreira','1990-12-25');
-INSERT INTO webschema.membro (nome,sobrenome,data_nascimento) VALUES ('Kaique','Viana','2002-09-24');
+INSERT INTO webschema.membro (nome,sobrenome,data_nascimento,ativo) VALUES ('Claudio','Peres', '1994-08-25',0);
+INSERT INTO webschema.membro (nome,sobrenome,data_nascimento,ativo) VALUES ('Henrique','Ferreira','1990-12-25',1);
+INSERT INTO webschema.membro (nome,sobrenome,data_nascimento,ativo) VALUES ('Kaique','Viana','2002-09-24',1);
 
 -- Instrutor
 
