@@ -26,3 +26,8 @@ def cria_novo():
     novo_membro = Membro(nome,sobrenome,data_nascimento,ativo)
     conector_membro.create(novo_membro)
     return redirect('/membro')
+
+@blue_membro.route('/membros/<id>/edit')
+def edita_membro():
+    membro = conector_membro.get_one(id)
+    return render_template('mebros/edit.html',membro = membro, title = 'Edita Membro')
