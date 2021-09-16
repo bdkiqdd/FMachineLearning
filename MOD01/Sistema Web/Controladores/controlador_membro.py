@@ -17,7 +17,7 @@ def index_mebros():
 def novos_membros():
     return render_template('membros/novo.html',title= 'Novo Membro')
 
-@blue_membro.route('/membros',methos = ['POST'])
+@blue_membro.route('/membros',methods = ['POST'])
 def cria_novo():
     nome = request.form['nome']
     sobrenome = request.form['sobrenome']
