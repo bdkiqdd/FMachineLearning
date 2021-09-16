@@ -14,25 +14,6 @@
     <label for="data_nascimento">Data Nascimento:</label>
     <input name="data_nascimento" id="data_nascimento" placeholder="Data Nascimento:" type="date" value="{{membro.data_nascimento}}" required>
     
-    <label for="email">E-mail:</label>
-    <input name="email" id="email" placeholder="Email" type="text" value="{{membro.email}}" required>
-    
-    <label for="telefone">Telefone:</label>
-    <input name="telefone" id="telefone" placeholder="Telefone" type="text" value="{{membro.telefone}}" required>
-    
-    <label for="endereco">Endereço:</label>
-    <input name="endereco" id="endereco" placeholder="Endereço" type="textarea" value="{{membro.endereco}}" required>
-    
-    <label for="tipo_plano">Tipo Plano:</label>
-    <select name="tipo_plano" id="tipo_plano">
-        {% for plano in tipos_planos %}
-            <option value="{{plano.id}}" {% if membro.tipo_plano == plano.id %} selected="selected" {% endif %} >{{plano.plano}}</option>
-        {% endfor %}
-    </select>
-    
-    <label for="data_inicio">Data Início:</label>
-    <input name="data_inicio" id="data_inicio" type="date" value="{{membro.data_inicio}}" required>
-    
     <label for="ativo">Membro Ativo:</label>
     <select name="ativo" id="ativo">
         <option value="True" {% if membro.ativo == True %} selected="selected" {% endif %}>Sim</option>
