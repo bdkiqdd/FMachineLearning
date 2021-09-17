@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/atividades/{{atividade.id}}" method = "POST">
+    
+    <h1>Editar Atividade</h1>
+    
+    <label for="nome">Nome da Atividade:</label>
+    <input name="name" id="name" placeholder="Nome Atividade" type="text" value="{{atividade.nome}}" required autofocus>
+    
+    <label for="duracao" >Duração:</label>
+    <input name="duracao" id="duracao" placeholder="Duracao" type="text" value="{{atividade.duracao}}" required>
+    
+    <label for="tipo" >Tipo:</label>
+    <input name="tipo" id="tipo" placeholder="tipo" type="text" value="{{atividade.tipo}}" required>
+
+    <button type="submit">Atualizar Atividade</button>
+
+</form>
+
+{% endblock content %}

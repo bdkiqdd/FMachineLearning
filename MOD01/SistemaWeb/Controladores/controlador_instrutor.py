@@ -37,7 +37,7 @@ def edita_instrutor(id):
 
 # Pegando informações do form e editando o instrutor
 @blue_instrutor.route('/instrutores/<id>',methods = ['POST'])
-def atualiza_instrutor():
+def atualiza_instrutor(id):
     nome = request.form['nome']
     sobrenome = request.form['sobrenome']
     data_nascimento = request.form['data_nascimento']

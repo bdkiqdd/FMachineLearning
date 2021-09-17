@@ -1,19 +1,17 @@
 import os
 import psycopg2
-import psycopg2.extras as ext
-import password
+import psycopg2.extras as ext 
 
 def conn_base(sql,values = None):
 
     conn = None
     results = []
-    passW = password.passW
 
     try:
-        conn = psycopg2.connect(f"host=localhost port=5432 dbname=dbFML user=postgres password={passW}")
+        conn = psycopg2.connect(f"host=localhost port=5432 dbname=postgres user=postgres password=kiqdb")
         cursor = conn.cursor(cursor_factory= ext.DictCursor)
         cursor.execute(sql,values)
-        cursor.commit()
+        conn.commit()
         results = cursor.fetchall()
         cursor.close()
     except (Exception,psycopg2.DatabaseError) as ex:

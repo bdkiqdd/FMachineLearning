@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/atividades" method="POST">
+    
+    <h1>Nova Atividade</h1>
+    
+    <label for="nome">Nome Atividade:</label>
+    <input name="nome" id="name" placeholder="Nome Atividade" type="text"  required autofocus>
+
+    <label for="duracao">Duração:</label>
+    <input name="duracao" id="duracao" placeholder="Duração" type="text" required>
+    
+    <label for="tipo">Tipo:</label>
+    <input name="tipo" id="tipo" placeholder="tipo" type="text" required>
+    
+
+    <button type="submit">Adicionar Atividade</button>
+
+</form>
+
+{% endblock content %}

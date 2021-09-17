@@ -1,8 +1,8 @@
 from Classes.agendamento import Agendamento
 from Database.connect import conn_base
-import conector_instrutor
-import conector_atividade 
-import conector_membro
+import Conectores.conector_instrutor as conector_instrutor
+import Conectores.conector_atividade as conector_atividade 
+import Conectores.conector_membro as conector_membro
 
 # Faz o select no banco por todos os itens
 def get_all():

@@ -10,8 +10,6 @@
   <div class="card">
     <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
     <h4 id="nome"><b>{{atividade.nome_atividade}}</b></h4>
-    <h5>{{atividade.data.strftime("%d/%m/%Y")}}</h5>
-    <h5>{{atividade.data.strftime("%X")}}</h5>
     <hr>
     <p>
       <a class="card-btn" href="/atividades/{{atividade.id}}">Detalhes</a>
