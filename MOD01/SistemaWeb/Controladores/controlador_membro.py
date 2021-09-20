@@ -35,7 +35,7 @@ def cria_novo():
 @blue_membro.route('/membros/<id>/edit')
 def edita_membro(id):
     membro = conector_membro.get_one(id)
-    return render_template('mebros/edit.html',membro = membro, title = 'Edita Membro')
+    return render_template('membros/editar.html',membro = membro, title = 'Edita Membro')
 
 # Pegando as informações no form e fazendo a edição
 @blue_membro.route('/membros/<id>', methods = ['POST'])

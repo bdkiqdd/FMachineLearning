@@ -18,9 +18,8 @@
   
   <select id="atividade" name="atividade">
     {% for atividade in atividades %}
-    <option value="{{ atividade.id }}">{{ atividade.nome }} - {{atividade.tipo_plano.plano}} -
-      {{atividade.data.strftime("%d/%m/%Y")}} -
-      {{atividade.data.strftime("%X")}}</option>
+    <option value="{{ atividade.id }}"> {{ atividade.nome_atividade }} - {{atividade.tipo}}
+</option>
     {% endfor %}
   </select>
   
