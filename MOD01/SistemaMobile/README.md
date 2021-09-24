@@ -6,5 +6,3 @@
 * Node.JS
 * Expo
 * Yarn
-IDE
-* Android Studio
