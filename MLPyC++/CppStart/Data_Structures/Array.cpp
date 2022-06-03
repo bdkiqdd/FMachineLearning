@@ -9,6 +9,7 @@ int main(){
     {
         lista[i] = i + 1;
     }
+    
     cout << "Testing array" << endl;
     cout << lista[2] << endl;
     cout << "-------------------------" << endl;
